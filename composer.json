@@ -1,0 +1,14 @@
+{
+    "name": "pc-desktopmk/poo_mvc_l2",
+    "autoload": {
+        "psr-4": {
+            "App\\Models\\": "models/",
+            "App\\Core\\": "core/",
+            "App\\Controllers\\": "controllers/",
+            "App\\Exceptions\\":"exceptions"
+        }
+    },
+    "require": {
+        "rakit/validation": "^1.4"
+    }
+}
