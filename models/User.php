@@ -5,18 +5,30 @@
  
 class User extends Model{
     //Attributs 
-     protected int   $id;
+     protected ?int   $id;
      protected string $login;
      protected string $password;
      protected static string $role=ROLE_ADMIN;
-     protected String $nom;
-     protected String $prenom;
-     protected String|null $image;
+     protected ?String $nom;
+     protected ?String $prenom;
+     protected ?String $image;
     
-    public function __construct( string $role=ROLE_ADMIN)
+    public function __construct(string $role=ROLE_ADMIN)
     {
          $this->setRole($role);
     }
+
+    public static function dbInit(array $result):self{
+          $user=new self;
+          $user->setId($result['id'],);
+          $user->setPassword($result['password']);
+          $user->setRole($result['roles']);
+          $user->setLogin($result['login']);
+          $user->setNom($result['prenom']);
+          $user->setPrenom($result['nom']);
+          $user->setImage($result['image']);
+          return $user;
+     }
     
     public function getId():int{
        return $this->id;

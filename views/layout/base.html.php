@@ -142,7 +142,7 @@
             </div>
             
         </div>
-        <div class="p-10 flex-column ">
+        <div class="flex-column ">
         <?=$content_for_views?>
         </div>
     </main>

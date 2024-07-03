@@ -41,13 +41,13 @@ abstract class Model implements IModel{
          return self::database()->executeSelect($sql,[$id],true);
     }
     
-    public static  function selectWhere(string $sql,array $data=[],$single=false,string  $className=""){
+    public static  function selectWhere(string $column,array $data=[],$single=false,string  $className=""){
         if(empty($className)){
             self::database()->setClassName(get_called_class()) ;
         }else{
             self::database()->setClassName($className);
         }
-        
+        $sql="select *  from ".self::table()."  where `$column`= ? ";
         return self::database()->executeSelect($sql,$data,$single);
     }
 

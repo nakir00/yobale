@@ -20,7 +20,6 @@ class DataBase{
               die("Erreur Connexion -Veuillez contacter votre Admin");
               //throw new BdConnexionException;
         }
-       
     }
 
     public function closeConnexion(){
@@ -43,10 +42,15 @@ class DataBase{
          $stm->execute($data);
          if($this->className!==null)
          {
-         $stm->setFetchMode(\PDO::FETCH_CLASS,$this->className);
+            //dd(['classname'=>$this->className]);
+         $stm->setFetchMode(\PDO::FETCH_ASSOC);
          }
         if($single){
             $result=$stm->fetch();//Both
+            if($result){
+                $result=call_user_func($this->className .'::dbInit',$result);
+            }
+            //dd(['statement'=>$result,'model'=>$model]);
         }else{
             $result=$stm->fetchAll();
         }
@@ -62,6 +66,7 @@ class DataBase{
          $stm->execute($data);
          $result=$stm->rowCount();
         $this->closeConnexion();
+
         return  $result;
     }
 

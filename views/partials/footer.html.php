@@ -1,5 +1,5 @@
 <!-- Bootstrap JavaScript Libraries -->
-    <script src="js/app.js"></script>
-    <script src="js/validation.js"></script>
+    <script src="<?=WEB_URL?>/js/app.js"></script>
+    <script src="<?=WEB_URL?>/js/validation.js"></script>
   </body>
 </html>

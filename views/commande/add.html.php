@@ -1,4 +1,4 @@
-<div class="flex-row  justify-between">
+            <div class="flex-row  justify-between">
                 <span>informations</span>
                 <span>commande No001201001975</span>
             </div>
@@ -6,7 +6,7 @@
                 <span>Creer une Commande</span>
                 <span>Code de Retrait 236 250 000 444</span>
             </div>
-            <form class="flex-column p-10 mb-20 justify-center items-center " style="height: 80vh;" method="post" action=" <?=WEB_URL?>/commande/add">
+            <form class="flex-column p-10 mb-20 justify-center items-center " style="height: 80vh;" method="post" action="<?=WEB_URL?>/commande/add">
                 <div class="new-comande-grid w-full "> 
                     <div class="comande-section p-10">
                         <div class="flex-row justify-between items-center border-b-2 border-solid ">
@@ -314,7 +314,7 @@
                         </div>
                         <div class="flex-column-reverse">
                             <div class="flex-row justify-between items-center mt-10 gap-5">
-                                <button type="button" id="enregistrer-commande-btn" class="main"><span>ENREGISTRER LA COMMANDE</span></button>
+                                <button type="submit" id="enregistrer-commande-btn" class="main"><span>ENREGISTRER LA COMMANDE</span></button>
                                 <img src="./assets/accept.png" id="checked-btn"  alt="checked" style="width: auto;height: 30px;">
                                 <button type="button" id="print-invoice-btn" class="main"><span>IMPRIMER LE RECU CLIENT</span></button>
                             </div>
