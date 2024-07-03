@@ -5,29 +5,29 @@ use App\Core\Request;
 use App\Models\Classe;
 use App\Core\Controller;
 use App\Core\IController;
-use App\Models\User;
 use Rakit\Validation\Validator;
 
-class UserController extends Controller implements IController{
+class CommandeController extends Controller implements IController{
+
     private array $niveaux=["L1","L2","L3"];
     private array $filieres=["MAE","GLRS","CDSD"];
     public function lister(){
 
-         $users=User::selectAll(true);
-          $this->render("users/liste",[
-            'users'=> $users
+         $classes=Classe::selectAll(true);
+          $this->render("classe/liste",[
+            'classes'=> $classes
          ]);
     }
 
     public function ajouter(){
+        
         if( $this->request->isGet()){  
-            $this->render("users/add",[
-                "niveaux"=>$this->niveaux,
-                "filieres"=>$this->filieres
-            ]);
-      }
+            
+            $this->render("commande/add");
+        }
 
       if($this->request->isPost()){
+        dd('i got it');
         $validator = new Validator;
         $validation = $validator->make($this->request->request(),[
             'niveau' => 'required',
@@ -40,7 +40,7 @@ class UserController extends Controller implements IController{
         $validation->validate();
          if ($validation->fails()) {
            $errors = $validation->errors();
-            $this->render("users/add",[
+            $this->render("classe/add",[
                  'errors'=>$errors->firstOfAll(),
                  "niveaux"=>$this->niveaux,
                  "filieres"=>$this->filieres
@@ -52,7 +52,7 @@ class UserController extends Controller implements IController{
              $classe->setNiveau($data['niveau']);
              $classe->setLibelle($data['libelle']);
              $classe->insert();
-             $this->redirectToRoute("/users");
+             $this->redirectToRoute("/classe");
          }
       }
     }

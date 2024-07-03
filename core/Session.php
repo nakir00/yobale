@@ -1,5 +1,8 @@
 <?php 
 namespace App\Core;
+
+use App\Exceptions;
+
 abstract class Session{
 
     public static function openSession(){
@@ -8,7 +11,11 @@ abstract class Session{
         }
     }
     public static function get(string $key){
-        return $_SESSION[$key];
+        if(array_key_exists($key,$_SESSION)){
+            return $_SESSION[$key];
+        }
+        die('session key undefined');
+        
     }
 
     public static function set(string $key,$data){
@@ -24,7 +31,7 @@ abstract class Session{
     }
 
     public static function userExist(){
-        return isset($_SESSION[KEY_USER]);
+        return array_key_exists(KEY_USER,$_SESSION);
     }
 
     public static function destroy(){

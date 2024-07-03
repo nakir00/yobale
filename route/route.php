@@ -1,6 +1,7 @@
 <?php
 use App\Core\Router;
 use App\Controllers\ClasseController;
+use App\Controllers\CommandeController;
 use App\Controllers\CoursController;
 use App\Controllers\ModuleController;
 use App\Controllers\ProfesseurController;
@@ -17,6 +18,8 @@ $router->route("/sign-in",[SecuriteController::class,"inscription"]);
 $router->route("/logout",[SecuriteController::class,"deconnexion"]);
 
 $router->route("/dashboard",[HomeController::class,"home"]);
+
+$router->route("/commande/add",[CommandeController::class,"ajouter"]);
 
 $router->route("/classe",[ClasseController::class,"lister"]);
 $router->route("/classe-add",[ClasseController::class,"ajouter"]);

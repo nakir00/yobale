@@ -30,16 +30,3 @@ class Controller{
 
 
 }
-
-/**
- * $x=[
- *    'nom'=> "Diop",
- *    'prenom'=> "Amadou",
- * ]
- * echo $x['nom'];//Diop
- * echo $x['prenom'];//Amadou
- * 
- * extract($x);
- * echo $nom;//Diop
- * echo $prenom;//Amadou
- */

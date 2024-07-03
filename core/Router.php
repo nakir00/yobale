@@ -45,7 +45,8 @@ class Router {
   }
 
   public function resolve(){
-     $uri= "/".$this->request->getUri();
+     $uri= $this->request->getUri();
+     
      if(isset( $this->routes[$uri])){
          //Destrtruction
         [$ctrlClass,$action] =$this->routes[$uri];
@@ -55,6 +56,7 @@ class Router {
         */
         if(class_exists($ctrlClass) && method_exists($ctrlClass,$action)){
              Session::openSession();
+
              //surcharger le controller
               $ctrl=new $ctrlClass($this->request);
               //Injection Objet request dans une action

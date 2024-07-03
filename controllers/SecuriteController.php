@@ -16,6 +16,7 @@ class SecuriteController extends Controller{
     public function connexion(){
           if(Session::userExist()){
                $this->redirectToRoute("/dashboard");
+               
           }
          if( $this->request->isGet()){  
                

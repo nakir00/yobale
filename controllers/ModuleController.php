@@ -9,7 +9,8 @@ use Rakit\Validation\Validator;
 
 class ModuleController extends Controller implements IController{
 
-
+    private array $niveaux=["L1","L2","L3"];
+    private array $filieres=["MAE","GLRS","CDSD"];
     public function lister(){
 
         $modules=Module::selectAll(true);
